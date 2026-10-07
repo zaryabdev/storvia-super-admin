@@ -197,7 +197,7 @@ const StoreDetailPage = async ({
           description={`Created ${formatDate(store.createdAt)}`}
         />
         <Separator />
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
@@ -214,6 +214,19 @@ const StoreDetailPage = async ({
               <div className="text-2xl font-bold">
                 {formatMoney(store.salesTotal, store.currency)}
               </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium">Delivery fees collected</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">
+                {store.deliveryFeesTotal !== undefined
+                  ? formatMoney(store.deliveryFeesTotal, "PKR")
+                  : "—"}
+              </div>
+              <p className="text-xs text-muted-foreground">Included in sales</p>
             </CardContent>
           </Card>
           <Card>

@@ -29,6 +29,11 @@ export interface SuperAdminStoreDetail extends SuperAdminStore {
   owner: SuperAdminStoreOwner;
   /** Per-Store email kill switch (same field the merchant controls in Admin). */
   emailDeliveryBlocked: boolean;
+  /**
+   * Delivery fees on CONFIRMED + DELIVERED orders, PKR decimal string; already
+   * included in salesTotal. Optional: older Admin APIs don't return it.
+   */
+  deliveryFeesTotal?: string;
 }
 
 export interface SuperAdminStoreEmailSettings {
